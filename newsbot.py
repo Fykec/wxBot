@@ -20,6 +20,16 @@ SCHEDULE_MINUTE = 0
 class NewsWXBot(WXBot):
 
     def handle_msg_all(self, msg):
+        self.nickName = u'小猫助手'
+        reload(sys) 
+        sys.setdefaultencoding('utf8')
+        ##群文本消息
+        if msg['msg_type_id'] == 3 and msg['content']['type'] == 0:
+            #@了
+            if msg['content']['data'].find('@'+self.nickName) != -1:
+                if msg['content']['data'].find(u'论坛') != -1:
+                    self.send_msg_by_uid(u'@'+msg['content']['user']['name']+' http://t.cn/RiZuWNK', msg['user']['id'])
+
         if msg['msg_type_id'] == 4 and msg['content']['type'] == 0:
             self.send_msg_by_uid(u'hi', msg['user']['id'])
 
