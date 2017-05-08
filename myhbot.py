@@ -6,7 +6,7 @@ from wxbot import *
 import urllib
 import requests
 
-class NewsWXBot(WXBot):
+class MYHWXBot(WXBot):
 
     def handle_msg_all(self, msg):
         #群昵称，进群之后，必须改为这个昵称
@@ -29,9 +29,9 @@ class NewsWXBot(WXBot):
                                     
 
 def main():
-    bot = NewsWXBot()
+    bot = MYHWXBot()
     bot.DEBUG = True
-    bot.conf['qr'] = 'png'
+    bot.conf['qr'] = 'tty'
     bot.run()
 
 
